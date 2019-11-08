@@ -1,0 +1,18 @@
+Package: datagovsgR
+Type: Package
+Title: Calls Real Time APIs From Data.gov.sg
+Version: 0.1.0
+Author: Clinton Wong
+Maintainer: Clinton Wong <cwxy.clinton@gmail.com>
+Description: This package serves as a wrapper for the data.gov.sg developer
+    resources for the real-time APIs.
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.99.9001
+Imports: 
+    httr
+Depends:
+    httr
+Suggests:
+    httr
