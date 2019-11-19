@@ -15,13 +15,13 @@
 #' dgsg_carpark(date = "2019-06-05T10:10:10")
 #' dgsg_carpark(date = "2018-07-01T19:32:56")
 
-carpark_availability = function(date = "") {
+carpark_availability = function(date_time = "") {
 
   # Creating and pulling URL
   URL = parse_api_date(api = "transport/carpark-availability",
-                       input_date = date,
+                       input_date = date_time,
                        summary = FALSE)
-  output = GET(URL)
+  output = httr::GET(URL)
 
   # Error check
   content.output = parse_api_output(output)
@@ -29,21 +29,21 @@ carpark_availability = function(date = "") {
   # Extracting Data Frame
   message("Closest timestamp: ", content.output$items[[1]]$timestamp)
 
-  carpark_availability = data.frame(id = rep(1, length(content.output$items[[1]]$carpark_data)),
-                                   type = rep(1, length(content.output$items[[1]]$carpark_data)),
-                                   last_update = rep(NA, length(content.output$items[[1]]$carpark_data)),
-                                   total_lots = rep(NA, length(content.output$items[[1]]$carpark_data)),
-                                   current_lots = rep(NA, length(content.output$items[[1]]$carpark_data)))
 
-  for (i in 1:length(content.output$items[[1]]$carpark_data)) {
+  ## Using LAPPLY
+  carpark_availability = lapply(1:length(content.output$items[[1]]$carpark_data), function(x){
 
-    carpark_availability[i, 1] = content.output$items[[1]]$carpark_data[i][[1]]$carpark_number
-    carpark_availability[i, 2] = content.output$items[[1]]$carpark_data[i][[1]]$carpark_info[[1]]$lot_type
-    carpark_availability[i, 3] = content.output$items[[1]]$carpark_data[i][[1]]$update_datetime
-    carpark_availability[i, 4] = as.integer(content.output$items[[1]]$carpark_data[i][[1]]$carpark_info[[1]]$total_lots)
-    carpark_availability[i, 5] = as.integer(content.output$items[[1]]$carpark_data[i][[1]]$carpark_info[[1]]$lots_available)
+    data.frame(id = content.output$items[[1]]$carpark_data[x][[1]]$carpark_number,
+               type = content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$lot_type,
+               last_update = content.output$items[[1]]$carpark_data[x][[1]]$update_datetime,
+               total_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$total_lots),
+               availible_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$lots_available),
+               stringsAsFactors = FALSE)
 
-  }
+
+  })
+
+  carpark_availability = dplyr::bind_rows(carpark_availability)
 
   return(carpark_availability)
 

@@ -7,17 +7,17 @@
 
 parse_api_output = function(inputcontent) {
 
-  if (!http_error(inputcontent)) {
+  if (!httr::http_error(inputcontent)) {
 
-    return(content(inputcontent))
+    return(httr::content(inputcontent))
 
-  } else if (status_code(inputcontent) >= 400 &
-             status_code(inputcontent) < 500) {
+  } else if (httr::status_code(inputcontent) >= 400 &
+             httr::status_code(inputcontent) < 500) {
 
     stop("Client error has occured. Check your code.")
 
-  } else if (status_code(inputcontent) >= 500 &
-             status_code(inputcontent) < 600) {
+  } else if (httr::status_code(inputcontent) >= 500 &
+             httr::status_code(inputcontent) < 600) {
 
     stop("Server Error has occured.")
 

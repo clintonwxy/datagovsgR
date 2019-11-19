@@ -4,7 +4,7 @@
 \alias{taxi_availability}
 \title{Taxi Availability}
 \usage{
-taxi_availability(date = "")
+taxi_availability(date_time = "")
 }
 \arguments{
 \item{date}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS}

@@ -4,7 +4,7 @@
 \alias{carpark_availability}
 \title{Carpark Availability}
 \usage{
-carpark_availability(date = "")
+carpark_availability(date_time = "")
 }
 \arguments{
 \item{date}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS}

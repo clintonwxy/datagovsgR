@@ -15,22 +15,26 @@
 #' taxi_availability(date = "2019-08-07T09:30:00")
 #' taxi_availability(date = "2018-06-05T13:45:00")
 
-taxi_availability = function(date = "") {
+taxi_availability = function(date_time = "") {
 
   # Creating and pulling URL
   URL = parse_api_date(api = "transport/taxi-availability",
-                       input_date = date,
+                       input_date = date_time,
                        summary = FALSE)
-  output = GET(URL)
+  output = httr::GET(URL)
 
   # Error check
   content.output = parse_api_output(output)
+
+  if (length(content.output$features[[1]]$geometry$coordinates) == 0) {
+    stop("No data returned from API.")
+  }
 
   # Extracting Data Frame
   message("Timestamp: ", content.output$features[[1]]$properties$timestamp)
   message("Availible Taxis: ", content.output$features[[1]]$properties$taxi_count)
 
-  taxi_locations = as.data.frame(rbindlist(content.output$features[[1]]$geometry$coordinates))
+  taxi_locations = as.data.frame(data.table::rbindlist(content.output$features[[1]]$geometry$coordinates))
   colnames(taxi_locations) = c("long", "lat")
 
   return(taxi_locations)

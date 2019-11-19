@@ -16,6 +16,8 @@
 #' of Singapore and time of day. Dependent on the data availible, not all
 #' results range from 0000 to 2300.
 #'
+#' @importFrom magrittr %>%
+#'
 #' @export
 #' @examples
 #' psi()
@@ -28,25 +30,31 @@ psi_summary = function(date = "") {
   URL = parse_api_date(api = "environment/psi",
                        input_date = date,
                        summary = TRUE)
-  output = GET(URL)
+  output = httr::GET(URL)
 
   # Error check
   content.output = parse_api_output(output)
+
+  if (length(content.output$items) == 0) {
+    stop("No data returned from API.")
+  }
 
   # Extracting Data Frame
 
   psi_summary = lapply(1:length(content.output$items), function(x) {
 
     psi_summary = content.output$items[[x]]$readings %>%
-      bind_rows() %>%
-      transpose()
+      dplyr::bind_rows() %>%
+      data.table::transpose()
     colnames(psi_summary) = names(content.output$items[[x]]$readings)
     psi_summary = cbind(date_time = content.output$items[[x]]$timestamp,
                         region = names(content.output$items[[x]]$readings[[1]]),
                         psi_summary,
                         stringsAsFactors = FALSE)
 
-  }) %>% bind_rows()
+  })
+
+  psi_summary = dplyr::bind_rows(psi_summary)
 
   return(psi_summary)
 
