@@ -3,6 +3,8 @@
 #' Helper function to extract the content returned from the API.
 #' Returns the status code otherwise.
 #'
+#' @param inputcontent Takes the output of the GET function, runs an error check and returns the parsed output.
+#'
 #' @return The extracted content if not error has occured. Otherwise, the error message is returned.
 
 parse_api_output = function(inputcontent) {

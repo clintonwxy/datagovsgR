@@ -25,7 +25,7 @@ Note that this function is different from the `PSI` function,
 which returns the PSI measures for a given date-time.
 }
 \examples{
-psi()
+psi_summary()
 psi_summary(date = "2019-11-08")
 psi_summary(date = "2018-01-04")
 }

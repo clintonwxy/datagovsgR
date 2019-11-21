@@ -6,6 +6,9 @@
 \usage{
 parse_api_output(inputcontent)
 }
+\arguments{
+\item{inputcontent}{Takes the output of the GET function, runs an error check and returns the parsed output.}
+}
 \value{
 The extracted content if not error has occured. Otherwise, the error message is returned.
 }

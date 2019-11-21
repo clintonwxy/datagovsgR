@@ -1,7 +1,7 @@
 Package: datagovsgR
 Type: Package
 Title: Calls Real Time APIs From Data.gov.sg
-Version: 0.2.1
+Version: 0.2.2
 Author: Clinton Wong
 Maintainer: Clinton Wong <cwxy.clinton@gmail.com>
 Description: This package serves as a wrapper for the data.gov.sg developer
@@ -14,4 +14,5 @@ Imports:
     httr,
     data.table,
     dplyr,
-    stringr
+    stringr,
+    purrr

@@ -37,7 +37,7 @@ uvi_summary = function(date = "") {
 
   # Extracting Data Frame
   uvi_summary = dplyr::bind_rows(content.output$item[[length(content.output$item)]]$index)
-  uvi_summary = dplyr::arrange(as.data.frame(uvi_summary, stringsAsFactors = FALSE), timestamp)
+  uvi_summary = dplyr::arrange(as.data.frame(uvi_summary, stringsAsFactors = FALSE), uvi_summary$timestamp)
   uvi_summary = uvi_summary[ , c(2, 1)]
 
   message("Closest first timestamp: ", uvi_summary[1, 1])

@@ -3,7 +3,7 @@
 #' This functions calls upon the carpark availability API from data.gov.sg
 #' and processes the returning page.
 #'
-#' @param date Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS
+#' @param date_time Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS
 #'
 #' @keywords carpark
 #'
@@ -11,9 +11,9 @@
 #'
 #' @export
 #' @examples
-#' dgsg_carpark()
-#' dgsg_carpark(date = "2019-06-05T10:10:10")
-#' dgsg_carpark(date = "2018-07-01T19:32:56")
+#' carpark_availability()
+#' carpark_availability(date = "2019-06-05T10:10:10")
+#' carpark_availability(date = "2018-07-01T19:32:56")
 
 carpark_availability = function(date_time = "") {
 
@@ -29,8 +29,6 @@ carpark_availability = function(date_time = "") {
   # Extracting Data Frame
   message("Closest timestamp: ", content.output$items[[1]]$timestamp)
 
-
-  ## Using LAPPLY
   carpark_availability = lapply(1:length(content.output$items[[1]]$carpark_data), function(x){
 
     data.frame(id = content.output$items[[1]]$carpark_data[x][[1]]$carpark_number,
@@ -39,7 +37,6 @@ carpark_availability = function(date_time = "") {
                total_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$total_lots),
                availible_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$lots_available),
                stringsAsFactors = FALSE)
-
 
   })
 

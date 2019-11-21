@@ -3,7 +3,7 @@
 #' This functions calls upon the taxi availability API from data.gov.sg
 #' and returns a data frame of the locations of all availible taxis.
 #'
-#' @param date Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS
+#' @param date_time Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS
 #'
 #' @keywords taxi
 #'

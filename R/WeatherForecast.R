@@ -1,25 +1,22 @@
 #' Weather Forecast
 #'
-#' This functions calls upon the PSI API from data.gov.sg
-#' and returns a data frame of the different measures of the PSI across 5
-#' different areas in Singapores and the overall measure for the given
-#' data-time. This data provided by the API is updated hourly.
+#' This functions calls upon the weather forecast API from data.gov.sg
+#' and returns a data frame containing different metrics of the forecast.
+#' 2-hour, 24-hour and 4-day forecasts are availible. This data provided by the
+#' API is updated half-hourly.
 #'
-#' Note that this function is different from the `PSI_summary` function,
-#' which returns the PSI measures for a given day.
+#' @param date_time Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS
+#' @param forecast  Defaults to "2-hour". Also availible for "24-hour" and "4-day"
 #'
-#' @param date Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS
+#' @keywords weather
 #'
-#' @keywords PSI
-#'
-#' @return A dataframe containing various PSI measures across 5 corners
-#' of Singapore
+#' @return A dataframe the forecast for a given date and time, and forecast period.
 #'
 #' @export
 #' @examples
-#' psi()
-#' psi(date = "2019-11-08T17:30:00")
-#' psi(date = "2018-01-04T09:16:17")
+#' weather_forecast()
+#' weather_forecast(date = "2019-11-08T17:30:00", forecast = "24-hour")
+#' weather_forecast(date = "2018-01-04T09:16:17", forecast = "4-day")
 
 weather_forecast = function(date_time = "", forecast = "2-hour") {
 
@@ -43,8 +40,8 @@ weather_forecast = function(date_time = "", forecast = "2-hour") {
     message("Closest timestamp: ", content.output$items[[1]]$timestamp)
     message("Forecast valid to: ", content.output$items[[1]]$valid_period$end)
 
-    weather_forecast = dplyr::bind_rows(content.output$items[[1]]$forecasts) %>%
-      as.data.frame(stringsAsFactors = FALSE)
+    weather_forecast = dplyr::bind_rows(content.output$items[[1]]$forecasts)
+    weather_forecast = as.data.frame(weather_forecast, stringsAsFactors = FALSE)
 
     return(weather_forecast)
 

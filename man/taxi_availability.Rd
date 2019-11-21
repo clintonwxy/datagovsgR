@@ -7,7 +7,7 @@
 taxi_availability(date_time = "")
 }
 \arguments{
-\item{date}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS}
+\item{date_time}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS}
 }
 \value{
 A dataframe containing the longitude and latitude values of availible taxis.

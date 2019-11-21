@@ -7,9 +7,11 @@
 parse_api_date(api, input_date = "", summary)
 }
 \arguments{
-\item{summary}{Returns an error if the user inputs a date only time when not supported by the API.}
+\item{api}{The api to be called, i.e. api = "environment/air-temperature"}
 
-\item{date}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS or YYYY-MM-DD}
+\item{input_date}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS or YYYY-MM-DD}
+
+\item{summary}{Returns an error if the user inputs a date only time when not supported by the API.}
 }
 \value{
 A url to be called by the API.

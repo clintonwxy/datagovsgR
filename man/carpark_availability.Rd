@@ -7,7 +7,7 @@
 carpark_availability(date_time = "")
 }
 \arguments{
-\item{date}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS}
+\item{date_time}{Defaults to current (SGD) time. Format: YYYY-MM-DDTHH:MM:SS}
 }
 \value{
 A dataframe containing the carpark id, type, last update, total lots, and current lots.
@@ -17,8 +17,8 @@ This functions calls upon the carpark availability API from data.gov.sg
 and processes the returning page.
 }
 \examples{
-dgsg_carpark()
-dgsg_carpark(date = "2019-06-05T10:10:10")
-dgsg_carpark(date = "2018-07-01T19:32:56")
+carpark_availability()
+carpark_availability(date = "2019-06-05T10:10:10")
+carpark_availability(date = "2018-07-01T19:32:56")
 }
 \keyword{carpark}

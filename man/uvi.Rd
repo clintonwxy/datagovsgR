@@ -24,7 +24,7 @@ closest date time instead.
 }
 \examples{
 uvi()
-uvi(date = "2018-10-10T15:00:00")
-uvi(date = "2019-04-01T09:00:00")
+uvi(date_time = "2018-10-10T15:00:00")
+uvi(date_time = "2019-04-01T09:00:00")
 }
 \keyword{UVI}

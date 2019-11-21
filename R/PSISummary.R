@@ -16,11 +16,11 @@
 #' of Singapore and time of day. Dependent on the data availible, not all
 #' results range from 0000 to 2300.
 #'
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #'
 #' @export
 #' @examples
-#' psi()
+#' psi_summary()
 #' psi_summary(date = "2019-11-08")
 #' psi_summary(date = "2018-01-04")
 
