@@ -16,3 +16,7 @@ Imports:
     dplyr,
     stringr,
     purrr
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
