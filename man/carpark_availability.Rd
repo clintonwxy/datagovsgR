@@ -17,8 +17,10 @@ This functions calls upon the carpark availability API from data.gov.sg
 and processes the returning page.
 }
 \examples{
+\dontrun{
 carpark_availability()
 carpark_availability(date = "2019-06-05T10:10:10")
-carpark_availability(date = "2018-07-01T19:32:56")
+carpark_availability(date = "2018-12-01T19:32:56")
+}
 }
 \keyword{carpark}

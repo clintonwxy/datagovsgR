@@ -11,9 +11,11 @@
 #'
 #' @export
 #' @examples
+#' \donttest{
 #' carpark_availability()
 #' carpark_availability(date = "2019-06-05T10:10:10")
-#' carpark_availability(date = "2018-07-01T19:32:56")
+#' carpark_availability(date = "2018-12-01T19:32:56")
+#' }
 
 carpark_availability = function(date_time = "") {
 
@@ -35,7 +37,7 @@ carpark_availability = function(date_time = "") {
                type = content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$lot_type,
                last_update = content.output$items[[1]]$carpark_data[x][[1]]$update_datetime,
                total_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$total_lots),
-               availible_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$lots_available),
+               availability_lots = as.integer(content.output$items[[1]]$carpark_data[x][[1]]$carpark_info[[1]]$lots_available),
                stringsAsFactors = FALSE)
 
   })
