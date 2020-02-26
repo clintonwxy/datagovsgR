@@ -9,7 +9,12 @@ datagovsgR is a R package used to access data-frames returned by [Developer API 
 
 ## Installation
 
-You can install the latest version of datagovsgR through `install_github` in *R*.
+You can install the latest version of datagovsgR though CRAN.
+
+```r
+install.packages("datagovsgR")
+```
+Alternatively, you can install the developmental version of datagovsgR through `install_github` in *R*.
 
 ``` r
 install.packages("devtools")
@@ -17,9 +22,12 @@ devtools::install_github("clintonwxy/datagovsgR")
 ```
 
 
-## Usage
+## Using datagovsgR
 
-An example of the `psi` function is shown below, which returns 12 different psi measures across 5 sectors in Singapore for a given date and time.
+The API provided by [data.gov.sg](https://data.gov.sg/developer) does not require an API key and hence the package is able to query the relevant information directly. Below are two examples of the functions within the package
+
+#### PSI
+The `psi` function is shown below, which returns 12 different psi measures across 5 sectors in Singapore for a given date and time. The user is able query a specific date and time, or for current available information by ommiting the parameter.
 
 ``` r
 psi(date_time = "2019-11-08T17:30:02")
@@ -39,8 +47,8 @@ psi(date_time = "2019-11-08T17:30:02")
 #> 12        o3_eight_hour_max 27.00    48.00 32.00   48.00 30.00 41.00
 ```
 
-An example of the `taxi_availability` function is shown below, which returns the total number of available taxis for a given date and time, and their locations in latitude and longitude
-
+#### Taxi Availability
+The `taxi_availability` function returns the total number of available taxis for a given date and time, and their locations in latitude and longitude. Similarly, ommitting the `date_time` parameter returns the latest available information.
 
 ``` r
 taxi_availability(date_time = "2019-08-07T09:30:00") %>% 
