@@ -1,6 +1,7 @@
 # datagovsgR
 ![](https://travis-ci.org/clintonwxy/datagovsgR.svg?branch=master)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/clintonwxy/datagovsgR/graphs/commit-activity)
+![!Downloads](https://cranlogs.r-pkg.org/badges/grand-total/datagovsgR)
 
 
 datagovsgR is a R package used to access data-frames returned by [Developer API Tools](https://data.gov.sg/developer) from Data.gov.sg. The package calls upon the real-time APIs, to obtain information such as taxi availability,  real time weather readings, weather forecasts and PSI readings.
