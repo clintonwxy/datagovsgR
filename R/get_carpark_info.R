@@ -12,6 +12,10 @@
 #'
 #' @examples
 #' get_carpark_info()
+#'
+#' carpark_availability() %>%
+#'      left_join(get_carpark_info(), by = c("id" = "car_park_no")) %>%
+#'      as_tibble()
 get_carpark_info <- function() {
   offset <- 0
   carpark_info <- data.frame()

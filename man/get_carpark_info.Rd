@@ -18,4 +18,8 @@ to extract HDB carpark information and return it as data.frame
 }
 \examples{
 get_carpark_info()
+
+carpark_availability() \%>\%
+     left_join(get_carpark_info(), by = c("id" = "car_park_no")) \%>\%
+     as_tibble()
 }
