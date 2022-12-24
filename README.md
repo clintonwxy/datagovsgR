@@ -1,5 +1,4 @@
 # datagovsgR
-![](https://travis-ci.org/clintonwxy/datagovsgR.svg?branch=master)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/clintonwxy/datagovsgR/graphs/commit-activity)
 ![!Downloads](https://cranlogs.r-pkg.org/badges/grand-total/datagovsgR)
 
@@ -70,12 +69,12 @@ taxi_availability(date_time = "2019-08-07T09:30:00") %>%
 
 | APIs      | Availability  | Description/Remarks      | 
 | :------------------:  |:---------:| :-----------------------------------------|
-| IPOS applications API |  | Intellectual Property Office of Singapore / This dataset contains APIs for the retrieval for the following type of applications: - Patents - Designs - Trademarks |
+| IPOS applications API |  | Intellectual Property Office of Singapore / This dataset contains APIs for the retrieval for the following type of applications: - Patents - Designs - Trademarks. Currently not available as API end point is not returning useful information. |
 | Pollutant Standards Index (PSI) | :heavy_check_mark: | National Environment Agency / Overall and regional PSI data (24-hr PSI, Pollutant Concentration and Sub-Index) |
 | Carpark Availability | :heavy_check_mark: | GovTech / Get the latest carpark availability in Singapore: - Retrieved every minute - Use the date_time parameter to retrieve the latest carpark availability at that moment in time - Detailed carpark information can be found at https://data.gov.sg/dataset/hdb-carpark-information - Limited to 60 requests per minute per API key |
-| Realtime Weather Readings across Singapore | :heavy_check_mark: | National Environment Agency / NEA provides APIs for readings of temperature, humidity, precipitation and wind conditions at up to one-minute intervals. The data is provided at weather-station level. |
-| Ultra-violet Index (UVI) |  | National Environment Agency / UV Index value averaged over the past hour. Updated every hour between 7 AM and 7 PM everyday. Temporarily unavailable | 
-| Traffic Images |  | Land Transport Authority / Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. |
+| Realtime Weather Readings across Singapore |:heavy_check_mark:| National Environment Agency / NEA provides APIs for readings of temperature, humidity, precipitation and wind conditions at up to one-minute intervals. The data is provided at weather-station level. |
+| Ultra-violet Index (UVI) | :heavy_check_mark: | National Environment Agency / UV Index value averaged over the past hour. Updated every hour between 7 AM and 7 PM everyday. | 
+| Traffic Images |:heavy_check_mark:| Land Transport Authority / Returns links to images of live traffic conditions along expressways and Woodlands & Tuas Checkpoints. |
 | Taxi Availability | :heavy_check_mark: | Land Transport Authority / For access to real-time taxi availability data. Returns location coordinates of all Taxis that are currently available for hire. Does not include "Hired" or "Busy" Taxis. |
 | PM2.5 | :heavy_check_mark: | National Environment Agency / Regional hourly PM2.5 value measured in μg/m3 |
 | Weather Forecast | :heavy_check_mark: | National Environment Agency / Weather forecast for next 2 hours, next 24 hours and next 4 days. |
