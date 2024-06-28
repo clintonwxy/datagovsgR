@@ -27,13 +27,25 @@ psi = function(date_time = "") {
   URL = parse_api_date(api = "environment/psi",
                        input_date = date_time,
                        summary = FALSE)
-  output = httr::GET(URL)
 
-  # Error check
+  output = tryCatch({httr::GET(URL)},
+                    error = function(e) {
+                      if (inherits(e, "TimeoutError")) {return(NULL)}
+                      else {stop(e)}
+                      }
+                    )
+
+  if (is.null(output)) {
+    message("API request timed out.")
+    return(NULL)
+  }
+
+  # Content check
   content.output = parse_api_output(output)
 
   if (length(content.output$items) == 0) {
-    stop("No data returned from API.")
+    message("No data returned from API.")
+    return(NULL)
   }
 
   # Extracting Data Frame
@@ -45,4 +57,3 @@ psi = function(date_time = "") {
   return(psi)
 
 }
-

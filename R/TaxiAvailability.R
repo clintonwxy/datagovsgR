@@ -27,7 +27,8 @@ taxi_availability = function(date_time = "") {
   content.output = parse_api_output(output)
 
   if (length(content.output$features[[1]]$geometry$coordinates) == 0) {
-    stop("No data returned from API.")
+    message("No data returned from API.")
+    return(NULL)
   }
 
   # Extracting Data Frame

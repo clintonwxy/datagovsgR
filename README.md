@@ -69,7 +69,6 @@ taxi_availability(date_time = "2019-08-07T09:30:00") %>%
 
 | APIs      | Availability  | Description/Remarks      | 
 | :------------------:  |:---------:| :-----------------------------------------|
-| IPOS applications API |  | Intellectual Property Office of Singapore / This dataset contains APIs for the retrieval for the following type of applications: - Patents - Designs - Trademarks. Currently not available as API end point is not returning useful information. |
 | Pollutant Standards Index (PSI) | :heavy_check_mark: | National Environment Agency / Overall and regional PSI data (24-hr PSI, Pollutant Concentration and Sub-Index) |
 | Carpark Availability | :heavy_check_mark: | GovTech / Get the latest carpark availability in Singapore: - Retrieved every minute - Use the date_time parameter to retrieve the latest carpark availability at that moment in time - Detailed carpark information can be found at https://data.gov.sg/dataset/hdb-carpark-information - Limited to 60 requests per minute per API key |
 | Realtime Weather Readings across Singapore |:heavy_check_mark:| National Environment Agency / NEA provides APIs for readings of temperature, humidity, precipitation and wind conditions at up to one-minute intervals. The data is provided at weather-station level. |

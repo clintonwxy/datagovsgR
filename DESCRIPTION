@@ -1,7 +1,7 @@
 Package: datagovsgR
 Type: Package
 Title: Call Real Time APIs from Data Gov Singapore
-Version: 1.0.0
+Version: 1.0.1
 Author: Clinton Wong <cwxy.clinton@gmail.com>
 Maintainer: Clinton Wong <cwxy.clinton@gmail.com>
 Description: A wrapper for the Data.gov.sg developer resources, which provide 
